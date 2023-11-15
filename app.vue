@@ -88,6 +88,7 @@ import type { Pattern } from './types'
 
 const { bpm, currentStep, isPlaying, play, stop } = usePlayback()
 
+// making this a reactive value so that actions like saving changes or adding/removing patterns could be implemented down the line
 const patterns = ref([
   {
     id: '1',
@@ -183,7 +184,7 @@ const patterns = ref([
   }
 ])
 
-const selectedPatternId = ref('1')
+const selectedPatternId = ref(patterns.value[0].id)
 
 const selectedPattern = computed(() =>
   patterns.value.find(pattern => pattern.id === selectedPatternId.value)
