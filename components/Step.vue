@@ -19,6 +19,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   change: [velocity: number]
+  play: []
 }>()
 
 const pressed = computed(() => props.velocity > 0)
@@ -26,4 +27,9 @@ const pressed = computed(() => props.velocity > 0)
 const toggle = () => {
   emit('change', props.velocity ? 0 : 127)
 }
+
+whenever(
+  () => props.active && pressed.value,
+  () => emit('play')
+)
 </script>
