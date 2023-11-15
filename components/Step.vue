@@ -1,12 +1,14 @@
 <template>
   <button
     :aria-pressed="pressed"
-    class="h-11 w-11 b b-solid b-black"
-    :class="{ 'bg-green': pressed && active }"
+    class="relative h-14 w-11 b b-solid b-black"
+    :class="{
+      'after:(content-empty absolute top-2 left-1/2 transform -translate-x-1/2 h-3 w-3 bg-black rounded-full)':
+        pressed,
+      'bg-green': pressed && active
+    }"
     @click="toggle"
-  >
-    {{ velocity }}
-  </button>
+  ></button>
 </template>
 
 <script setup lang="ts">
