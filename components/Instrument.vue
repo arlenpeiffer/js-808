@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-4 items-center">
-    <p class="w-28 shrink-0 text-right uppercase">{{ name }}</p>
+    <p class="w-28 shrink-0 font-semibold text-right tracking-wider uppercase">{{ name }}</p>
     <div class="flex gap-4">
       <Step
         v-for="(step, index) in _sequence"

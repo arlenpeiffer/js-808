@@ -1,12 +1,13 @@
 <template>
-  <main class="mx-auto w-288 p-10">
+  <main class="w-288 bg-orange-50 b b-solid b-black p-10">
     <div class="flex justify-between items-end">
-      <h1 class="text-3xl">JS-808-A</h1>
+      <h1 class="font-display text-5xl c-orange-600">JS-808-A</h1>
       <div class="flex items-center gap-4">
         <section aria-label="Playback controls" class="flex gap-2">
           <button
             :aria-label="isPlaying ? 'Pause' : 'Play'"
             class="b b-solid b-black p-1"
+            :class="isPlaying ? 'c-orange-600' : 'hover:c-orange-600'"
             @click="play"
           >
             <svg
@@ -28,7 +29,7 @@
               />
             </svg>
           </button>
-          <button aria-label="Stop" class="b b-solid b-black p-1" @click="stop">
+          <button aria-label="Stop" class="b b-solid b-black p-1 hover:c-orange-600" @click="stop">
             <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M8.67 8C8.3 8 8 8.3 8 8.67v14.66c0 .37.3.67.67.67h14.66c.37 0 .67-.3.67-.67V8.67c0-.37-.3-.67-.67-.67H8.67Z"
@@ -42,7 +43,7 @@
               id="bpm"
               type="number"
               min="0"
-              class="w-16 b b-solid b-black p-2"
+              class="w-16 bg-transparent b b-solid b-black p-2"
             />
             <label for="bpm" id="bpm-label">BPM</label>
           </div>
@@ -53,7 +54,7 @@
           <select
             v-model="selectedPatternId"
             id="pattern"
-            class="b b-solid b-black p-2"
+            class="bg-transparent b b-solid b-black p-2"
             @update:model-value="loadPattern"
           >
             <option v-for="{ id, name } in patterns" :key="id" :value="id">
@@ -69,7 +70,7 @@
           <p class="text-xs text-center">{{ step }}</p>
           <div
             class="mt-1 mx-auto h-3 w-3 rounded-full b b-solid b-black"
-            :class="{ 'bg-green': isPlaying && step === currentStep }"
+            :class="{ 'bg-amber-400': isPlaying && step === currentStep }"
           ></div>
         </div>
       </div>
