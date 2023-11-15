@@ -4,10 +4,49 @@
       <h1 class="text-3xl">JS-808-A</h1>
       <div class="flex items-center gap-4">
         <section aria-label="Playback controls" class="flex gap-2">
-          <button class="b b-solid b-black p-2" @click="play">
-            {{ isPlaying ? 'Pause' : 'Play' }}
+          <button
+            :aria-label="isPlaying ? 'Pause' : 'Play'"
+            class="b b-solid b-black p-1"
+            @click="play"
+          >
+            <svg
+              v-if="isPlaying"
+              width="32"
+              height="32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.67 6.67c-.37 0-.67.3-.67.66v17.34c0 .36.3.66.67.66h4c.36 0 .66-.3.66-.66V7.33c0-.36-.3-.66-.66-.66h-4ZM19.33 6.67c-.36 0-.66.3-.66.66v17.34c0 .36.3.66.66.66h4c.37 0 .67-.3.67-.66V7.33c0-.36-.3-.66-.67-.66h-4Z"
+                fill="currentColor"
+              />
+            </svg>
+            <svg
+              v-else
+              width="32"
+              height="32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.67 6.65c0-.54.62-.86 1.06-.53l12.65 9.34c.36.27.36.8 0 1.08l-12.65 9.34a.67.67 0 0 1-1.06-.53V6.65Z"
+                fill="currentColor"
+              />
+            </svg>
           </button>
-          <button class="b b-solid b-black p-2" @click="stop">Stop</button>
+          <button aria-label="Stop" class="b b-solid b-black p-1" @click="stop">
+            <svg
+              width="32"
+              height="32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.67 8C8.3 8 8 8.3 8 8.67v14.66c0 .37.3.67.67.67h14.66c.37 0 .67-.3.67-.67V8.67c0-.37-.3-.67-.67-.67H8.67Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
           <div class="space-x-2">
             <input
               v-model="bpm"
