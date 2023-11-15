@@ -1,7 +1,7 @@
 <template>
   <button
     :aria-pressed="pressed"
-    class="relative h-14 w-11 b b-solid b-black"
+    class="relative h-14 w-11 b b-solid b-current"
     :class="[
       {
         'after:(content-empty absolute top-2 left-1/2 transform -translate-x-1/2 h-3 w-3 rounded-full)':
